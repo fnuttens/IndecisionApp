@@ -12,9 +12,7 @@ class IndecisionApp extends React.Component {
   }
 
   handleDeleteOptions() {
-    this.setState(() => {
-      return {options: []};
-    });
+    this.setState(() => ({ options: [] }));
   }
 
   handlePick() {
@@ -30,11 +28,9 @@ class IndecisionApp extends React.Component {
       return 'This option already exists';
     }
 
-    this.setState((prevState) => {
-      return {
-        options: prevState.options.concat(option)
-      };
-    })
+    this.setState((prevState) => ({
+      options: prevState.options.concat(option)
+    }));
   }
 
   render() {
@@ -54,9 +50,7 @@ class IndecisionApp extends React.Component {
   }
 }
 
-IndecisionApp.defaultProps = {
-  options: []
-};
+IndecisionApp.defaultProps = { options: [] };
 
 const Header = (props) => {
   return (
@@ -106,9 +100,7 @@ class AddOption extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmitOption = this.handleSubmitOption.bind(this);
-    this.state = {
-      error: undefined
-    };
+    this.state = { error: undefined };
   }
 
   handleSubmitOption(e) {
@@ -117,9 +109,7 @@ class AddOption extends React.Component {
     const option = e.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
 
-    this.setState(() => {
-      return {error};
-    });
+    this.setState(() => ({ error }));
   }
 
   render() {
@@ -129,7 +119,7 @@ class AddOption extends React.Component {
         <form onSubmit={this.handleSubmitOption}>
           <input type="text" name="option" />
           <button>Add Option</button>
-        </form> 
+        </form>
       </div>
     );
   }

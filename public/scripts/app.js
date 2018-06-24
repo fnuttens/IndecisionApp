@@ -77,9 +77,7 @@ var IndecisionApp = function (_React$Component) {
   return IndecisionApp;
 }(React.Component);
 
-IndecisionApp.defaultProps = {
-  options: []
-};
+IndecisionApp.defaultProps = { options: [] };
 
 var Header = function Header(props) {
   return React.createElement(
@@ -148,9 +146,7 @@ var AddOption = function (_React$Component2) {
     var _this2 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
     _this2.handleSubmitOption = _this2.handleSubmitOption.bind(_this2);
-    _this2.state = {
-      error: undefined
-    };
+    _this2.state = { error: undefined };
     return _this2;
   }
 
