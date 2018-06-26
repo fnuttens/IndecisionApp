@@ -12,6 +12,32 @@ class IndecisionApp extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const json = localStorage.getItem('options');
+    let options;
+
+    try {
+      options = JSON.parse(json);
+    } catch (e) {
+      // Do nothing
+    }
+
+    if (options) {
+      this.setState(() => ({ options }));
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.options.length !== this.state.options.length) {
+      const json = JSON.stringify(this.state.options);
+      localStorage.setItem('options', json);
+    }
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+  }
+
   handleDeleteOptions() {
     this.setState(() => ({ options: [] }));
   }
